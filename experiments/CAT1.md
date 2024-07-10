@@ -94,58 +94,71 @@ This part demonstrates possible serialization of TP in
 ```
 {
 	"tp": {
-    "tp_name": "tp_hasSome2",
 		"op1": {
 			"entity_declarations": {
 				"placeholder": [
 					{
 						"type": "ObjectProperty",
-						"name": "?p"
+						"text": "?p"
 					},
 					{
 						"type": "Class",
-						"name": "?A"
+						"text": "?A"
 					},
 					{
 						"type": "Class",
-						"name": "?B"
+						"text": "?B"
 					},
 					{
 						"type": "Class",
-						"name": "?C"
+						"text": "?C"
 					}
 				]
 			},
-			"where_clause": 
-					"ObjectProperty: ?p Domain: ?A . ObjectProperty: ?p Range: ?B . Class: ?C SubClassOf: ?B ."
+			"triples": {
+				"triple": [
+					"?p rdfs:domain ?A",
+					"?p rdfs:range ?B",
+					"?C rdfs:subClassOf ?B"
+				]
+			}
 		},
 		"op2": {
 			"entity_declarations": {
 				"placeholder": [
 					{
 						"type": "ObjectProperty",
-						"name": "?q"
+						"text": "?q"
 					},
 					{
 						"type": "Class",
-						"name": "?D"
+						"text": "?D"
 					},
 					{
 						"type": "Class",
-						"name": "?E"
+						"text": "?E"
 					},
 					{
 						"type": "Class",
-						"name": "?F"
+						"text": "?F"
 					},
 					{
 						"type": "Class",
-						"name": "?G"
+						"text": "?G"
 					}
 				]
 			},
-			"insert_clause":				
-					"ObjectProperty: ?q Domain: ?D . ObjectProperty: ?q Range: ?E . Class: ?F SubClassOf: ?E . Class: ?G EquivalentTo: (?q some ?F)"			
+			"triples": {
+				"triple": [
+					"?q rdfs:domain ?D",
+					"?q rdfs:range ?E",
+					"?F rdfs:subClassOf ?E",
+					"Class: ?G EquivalentTo: (?q some ?F)",
+					"_:restriction rdf:type owl:Restriction",
+					"_:restriction owl:onProperty ?q",
+					"_:restriction owl:someValuesFrom ?F"
+				]
+			}
 		},
 		"pt": {
 			"eq": [
@@ -165,14 +178,15 @@ This part demonstrates possible serialization of TP in
 					"op1": "?p",
 					"op2": "?q"
 				}
-			]			
-		}				
+			]
+		},
+		"_name": "CAT1"
 	}
 }
 ```
 
 **YAML**
-
+We might try, but XML or JSON should be fine.
 ```
 ```
 
