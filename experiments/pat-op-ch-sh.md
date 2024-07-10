@@ -84,23 +84,23 @@ Output:
 				"placeholder": [
 					{
 						"type": "ObjectProperty",
-						"text": "?p"
+						"name": "?p"
 					},
 					{
 						"type": "ObjectProperty",
-						"text": "?r"
+						"name": "?r"
 					},
 					{
 						"type": "Class",
-						"text": "?A"
+						"name": "?A"
 					},
 					{
 						"type": "Class",
-						"text": "?B"
+						"name": "?B"
 					},
 					{
 						"type": "Class",
-						"text": "?C"
+						"name": "?C"
 					}
 				]
 			},
@@ -118,15 +118,15 @@ Output:
 				"placeholder": [
 					{
 						"type": "ObjectProperty",
-						"text": "?q"
+						"name": "?q"
 					},
 					{
 						"type": "Class",
-						"text": "?D"
+						"name": "?D"
 					},
 					{
 						"type": "Class",
-						"text": "?E"
+						"name": "?E"
 					}				
 				]
 			},
