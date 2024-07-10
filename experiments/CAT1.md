@@ -29,27 +29,10 @@ WHERE {
 } 
 ```
 
-      <axiom>ObjectProperty: ?p Domain: ?A</axiom>
-      <axiom>ObjectProperty: ?p Range: ?B</axiom>
-      <axiom>Class: ?C SubClassOf: ?B</axiom>
-
 ## SPARQL update (TBox)
 
 ```
 TODO
-INSERT {
-  <newProperty> a owl:ObjectProperty;
-      rdfs:domain ?x;
-      rdfs:range ?z.
-}
-WHERE {
-  ?p a owl:ObjectProperty ;
-      rdfs:domain ?x;
-      rdfs:range ?a.
-  ?r a owl:ObjectProperty ;
-      rdfs:domain ?a;
-      rdfs:range ?z.
-}
 ```
 ## Transformation Pattern
 
