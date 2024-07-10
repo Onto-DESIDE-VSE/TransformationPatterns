@@ -99,19 +99,19 @@ This part demonstrates possible serialization of TP in
 				"placeholder": [
 					{
 						"type": "ObjectProperty",
-						"text": "?p"
+						"name": "?p"
 					},
 					{
 						"type": "Class",
-						"text": "?A"
+						"name": "?A"
 					},
 					{
 						"type": "Class",
-						"text": "?B"
+						"name": "?B"
 					},
 					{
 						"type": "Class",
-						"text": "?C"
+						"name": "?C"
 					}
 				]
 			},
@@ -128,23 +128,23 @@ This part demonstrates possible serialization of TP in
 				"placeholder": [
 					{
 						"type": "ObjectProperty",
-						"text": "?q"
+						"name": "?q"
 					},
 					{
 						"type": "Class",
-						"text": "?D"
+						"name": "?D"
 					},
 					{
 						"type": "Class",
-						"text": "?E"
+						"name": "?E"
 					},
 					{
 						"type": "Class",
-						"text": "?F"
+						"name": "?F"
 					},
 					{
 						"type": "Class",
-						"text": "?G"
+						"name": "?G"
 					}
 				]
 			},
@@ -153,6 +153,7 @@ This part demonstrates possible serialization of TP in
 					"?q rdfs:domain ?D",
 					"?q rdfs:range ?E",
 					"?F rdfs:subClassOf ?E",
+					"Class: ?G EquivalentTo: (?q some ?F)",
 					"_:restriction rdf:type owl:Restriction",
 					"_:restriction owl:onProperty ?q",
 					"_:restriction owl:someValuesFrom ?F"
