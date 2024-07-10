@@ -184,8 +184,9 @@ This part demonstrates possible serialization of TP in
 }
 ```
 
-**YAML**
+<!-- **YAML**
 We might try, but XML or JSON should be fine.
 ```
 ```
+-->
 
