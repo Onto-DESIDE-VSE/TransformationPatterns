@@ -153,7 +153,6 @@ This part demonstrates possible serialization of TP in
 					"?q rdfs:domain ?D",
 					"?q rdfs:range ?E",
 					"?F rdfs:subClassOf ?E",
-					"Class: ?G EquivalentTo: (?q some ?F)",
 					"_:restriction rdf:type owl:Restriction",
 					"_:restriction owl:onProperty ?q",
 					"_:restriction owl:someValuesFrom ?F"
