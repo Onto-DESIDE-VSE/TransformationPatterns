@@ -74,4 +74,82 @@ Output:
 - [Real example 1](https://people.geog.ucsb.edu/~jano/odpld.pdf)
 
 
+## Transformation Pattern
 
+```
+{
+	"tp": {
+		"op1": {
+			"entity_declarations": {
+				"placeholder": [
+					{
+						"type": "ObjectProperty",
+						"text": "?p"
+					},
+					{
+						"type": "ObjectProperty",
+						"text": "?r"
+					},
+					{
+						"type": "Class",
+						"text": "?A"
+					},
+					{
+						"type": "Class",
+						"text": "?B"
+					},
+					{
+						"type": "Class",
+						"text": "?C"
+					}
+				]
+			},
+			"triples": {
+				"triple": [
+					"?p rdfs:range ?A",
+					"?p rdfs:domain ?B",
+					"?r rdfs:domain ?A",
+					"?r rdfs:range ?C"
+				]
+			}
+		},
+		"op2": {
+			"entity_declarations": {
+				"placeholder": [
+					{
+						"type": "ObjectProperty",
+						"text": "?q"
+					},
+					{
+						"type": "Class",
+						"text": "?D"
+					},
+					{
+						"type": "Class",
+						"text": "?E"
+					}				
+				]
+			},
+			"triples": {
+				"triple": [
+					"?q rdfs:domain ?D",
+					"?q rdfs:range ?E"
+				]
+			}
+		},
+		"pt": {
+			"eq": [
+				{
+					"op1": "?B",
+					"op2": "?D"
+				},
+				{
+					"op1": "?C",
+					"op2": "?E"
+				}				
+			]
+		},
+		"_name": "op-ch-sh"
+	}
+}
+```
