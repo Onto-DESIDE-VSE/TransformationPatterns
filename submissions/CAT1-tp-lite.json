@@ -25,15 +25,15 @@
             }
         },
         "naming_transformation": [
-            {
-                "ntp": [
-                    {
-                        "?G": "make_passive_verb(?C)+head_noun(?A)"
-                    }
-                ],
-                "llm": [
+            {                
+                "lex": [
                     {
                         "?G": ["?C", "?A"]
+                    }
+                ],
+                "ntp": [
+                    {
+                        "?G": ["make_passive_verb(?C)+head_noun(?A)", "make_passive_verb(?C)"]
                     }
                 ]
             }
