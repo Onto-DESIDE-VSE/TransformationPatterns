@@ -2,7 +2,7 @@
 
 Shortening a property path.
 
-## ABox structure
+## ABox Structure
 
 Input
 ```
@@ -14,42 +14,46 @@ $x $q $z.
 ```
 <img src="https://github.com/Onto-DESIDE-VSE/TransformationPatterns/assets/65444662/9b154c6d-66fd-410e-88e2-d712813a8f3b" width="400px">
 
+### SPARQL ABox
+```
+INSERT {?x <newProperty> ?z}
+WHERE{
+	?x ?p ?y.
+	?y ?r ?z.
+}
+```
 
-### Semantic links
+## Semantic Links
 - {$p, $r} → $q
 
-## TBox hints
+## TBox Structure
+
+### TBox hints
 
 ```
 $p rdfs:range $a . $r rdfs:domain $a .
 ```
 
-## SPARQL for detection (TBox)
+### SPARQL for detection
 
 ```
-SELECT ?p ?r ?a
+SELECT ?p ?r ?a ?b ?c
 WHERE {
-  ?p rdfs:range ?a.
-  ?r rdfs:domain ?a.
+	?p rdfs:domain ?b .
+	?p rdfs:range ?a .
+	?r rdfs:domain ?a .
+	?r rdfs:range ?c .
 }
+
 ```
 
-## SPARQL update (TBox)
+### SPARQL update
 
 ```
-INSERT {
-  <newProperty> a owl:ObjectProperty;
-      rdfs:domain ?x;
-      rdfs:range ?z.
-}
-WHERE {
-  ?p a owl:ObjectProperty ;
-      rdfs:domain ?x;
-      rdfs:range ?a.
-  ?r a owl:ObjectProperty ;
-      rdfs:domain ?a;
-      rdfs:range ?z.
-}
+INSERT DATA {
+<newProperty> a owl:ObjectProperty;
+	rdfs:domain <b>;
+	rdfs:range <c>. }
 ```
 
 
