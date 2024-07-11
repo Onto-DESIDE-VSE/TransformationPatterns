@@ -189,3 +189,35 @@ We might try, but XML or JSON should be fine.
 ```
 -->
 
+## Transformation Pattern Lite
+
+OZ NOTE After some consideration, I think we can try simplification of transformation pattern structure wrt. original patomat due to new SPARQL perspective. I would say we do not need two sets of placeholders. We do not even need to declare placeholders at all. But, it can happen that we will have to return it back later on. The structure can evolve. However, I would start with simpler one now.
+
+```
+{
+	"tp": {
+        "name": "CAT1",
+		"op_source": {            
+			"triples": {
+				"triple": [
+					"?p rdfs:domain ?A",
+					"?p rdfs:range ?B",
+					"?C rdfs:subClassOf ?B"
+				]
+			}
+		},
+		"op_target": {
+			"triples": {
+				"triple": [
+					"?p rdfs:domain ?A",
+					"?p rdfs:range ?B",
+					"?C rdfs:subClassOf ?B",					
+					"_:restriction rdf:type owl:Restriction",
+					"_:restriction owl:onProperty ?q",
+					"_:restriction owl:someValuesFrom ?F"
+				]
+			}
+		}		
+	}
+}
+```
