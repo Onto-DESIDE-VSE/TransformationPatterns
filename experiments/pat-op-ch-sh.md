@@ -216,7 +216,7 @@ DELETE_axioms = {}
 new_entities = {?q}
 ```
 
-Considering user have already made some selection:
+Considering user have already made some selection and named new entity ?q:
 
 ```
 INSERT DATA {
