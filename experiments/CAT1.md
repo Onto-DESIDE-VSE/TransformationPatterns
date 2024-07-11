@@ -211,10 +211,12 @@ OZ NOTE After some consideration, I think we can try simplification of transform
 				"triple": [
 					"?p rdfs:domain ?A",
 					"?p rdfs:range ?B",
-					"?C rdfs:subClassOf ?B",					
+					"?C rdfs:subClassOf ?B",
+					"?G rdfs:subClassOf ?A",
+					"?G owl:equivalentClass _:restriction",
 					"_:restriction rdf:type owl:Restriction",
-					"_:restriction owl:onProperty ?q",
-					"_:restriction owl:someValuesFrom ?F"
+					"_:restriction owl:onProperty ?p",
+					"_:restriction owl:someValuesFrom ?C"
 				]
 			}
 		}		
@@ -225,7 +227,7 @@ OZ NOTE After some consideration, I think we can try simplification of transform
 
 We describe the step-by-step pipeline of applying transformation pattern on ontology.
 
-1. detection using SPARQL
+1. detection using SPARQL (user interaction)
 
 Use
 
@@ -234,7 +236,16 @@ $.tp.op_source.triples
 ```
 for SPARQL query preparation:
 
-Variables are extracted from triples: ?A, ?p, ?B, ?C
+```
+SELECT (extract_variables_from_triples($.tp.op_source.triples))
+WHERE {
+  $.tp.op_source.triples
+}
+```
+
+**CAT1 Example**
+
+(extract_variables_from_triples($.tp.op_source.triples))={?A, ?p, ?B, ?C}
 
 ```
 SELECT ?A ?p ?B ?C 
@@ -246,7 +257,7 @@ WHERE {
 ```
 This is basically already implemented. Now user could select pattern instance for transformation.
 
-2. 
+2. SPARQL update preparation (user interaction)
 
 Use
 
@@ -270,7 +281,25 @@ INSERT_axioms = $.tp.op_target.triples - $.tp.op_source.triples
 DELETE_axioms = $.tp.op_source.triples - $.tp.op_target.triples
 ```
 
-Next, we will show to user suggestions which axioms should be added **INSERT_axioms_selected** and which axioms could be removed **DELETE_axioms_selected**. There will also be some newly added entities - for beginning they can be named randonmly. User will have an option to rename them. Next, user will confirm the INSERT and DELETE changes. The corresponding SPARQL will be generated:
+```
+new_entities = extract_variables_from_triples($.tp.op_target.triples) - extract_variables_from_triples($.tp.op_source.triples)
+```
+
+**CAT1 Example**
+
+```
+INSERT_axioms = {"?G rdfs:subClassOf ?A", "?G owl:equivalentClass _:restriction","_:restriction rdf:type owl:Restriction", "_:restriction owl:onProperty ?q", "_:restriction owl:someValuesFrom ?F"}
+```
+
+```
+DELETE_axioms = {}
+```
+
+```
+new_entities = {?G}
+```
+
+Next, we will show the user suggestions on which axioms should be added **INSERT_axioms_selected** and which axioms could be removed **DELETE_axioms_selected**. There will also be some newly added entities **new_entities** - for the beginning, they can be named randomly. Users will have an option to rename them. Next, the user will confirm the INSERT and DELETE changes. The corresponding SPARQL will be generated:
 
 ```
 INSERT {
@@ -280,7 +309,9 @@ WHERE {
   $.tp.op_source.triples
 }
 ```
-(for start we can consider only INSERT part and focus on DELETE later on)
+NOTE But, variables will be rather already bound from user interaction, i.e., INSERT DATA without WHERE clause.
+
+(To start we can consider only the INSERT part and focus on DELETE later on)
 
 ```
 DELETE {
@@ -291,6 +322,29 @@ WHERE {
 }
 ```
 
+**CAT1 Example**
+```
+INSERT {
+  "?G rdfs:subClassOf ?A",
+  "?G owl:equivalentClass _:restriction",
+  "_:restriction rdf:type owl:Restriction",
+  "_:restriction owl:onProperty ?q",
+  "_:restriction owl:someValuesFrom ?F"
+}
+WHERE {
+  ?p rdfs:domain ?A .
+  ?p rdfs:range ?B .
+  ?C rdfs:subClassOf ?B
+}
+```
+
+NOTE But, variables will be rather already bound from user interaction, i.e., INSERT DATA without WHERE clause.
+
+
+3. result to download, show, visualize
+
 The result can be both SPARQL Update and transformed ontology for download.
 
 TODO later on we should also involve visualization, e.g. using [VOWL]((for start we can consider only INSERT part and focus on DELETE later on))
+
+
