@@ -15,10 +15,12 @@
 				"triple": [
 					"?p rdfs:domain ?A",
 					"?p rdfs:range ?B",
-					"?C rdfs:subClassOf ?B",					
+					"?C rdfs:subClassOf ?B",
+					"?G rdfs:subClassOf ?A",
+					"?G owl:equivalentClass _:restriction",
 					"_:restriction rdf:type owl:Restriction",
-					"_:restriction owl:onProperty ?q",
-					"_:restriction owl:someValuesFrom ?F"
+					"_:restriction owl:onProperty ?p",
+					"_:restriction owl:someValuesFrom ?C"
 				]
 			}
 		}		
