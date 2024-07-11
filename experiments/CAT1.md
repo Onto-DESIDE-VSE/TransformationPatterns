@@ -193,34 +193,47 @@ We might try, but XML or JSON should be fine.
 
 OZ NOTE After some consideration, I think we can try simplification of transformation pattern structure wrt. original patomat due to new SPARQL perspective. I would say we do not need two sets of placeholders. We do not even need to declare placeholders at all. But, it can happen that we will have to return it back later on. The structure can evolve. However, I would start with simpler one now.
 
-```
-{
-	"tp": {
+```{
+    "tp": {
         "name": "CAT1",
-		"op_source": {            
-			"triples": {
-				"triple": [
-					"?p rdfs:domain ?A",
-					"?p rdfs:range ?B",
-					"?C rdfs:subClassOf ?B"
-				]
-			}
-		},
-		"op_target": {
-			"triples": {
-				"triple": [
-					"?p rdfs:domain ?A",
-					"?p rdfs:range ?B",
-					"?C rdfs:subClassOf ?B",
-					"?G rdfs:subClassOf ?A",
-					"?G owl:equivalentClass _:restriction",
-					"_:restriction rdf:type owl:Restriction",
-					"_:restriction owl:onProperty ?p",
-					"_:restriction owl:someValuesFrom ?C"
-				]
-			}
-		}		
-	}
+        "op_source": {
+            "triples": {
+                "triple": [
+                    "?p rdfs:domain ?A",
+                    "?p rdfs:range ?B",
+                    "?C rdfs:subClassOf ?B"
+                ]
+            }
+        },
+        "op_target": {
+            "triples": {
+                "triple": [
+                    "?p rdfs:domain ?A",
+                    "?p rdfs:range ?B",
+                    "?C rdfs:subClassOf ?B",
+                    "?G rdfs:subClassOf ?A",
+                    "?G owl:equivalentClass _:restriction",
+                    "_:restriction rdf:type owl:Restriction",
+                    "_:restriction owl:onProperty ?p",
+                    "_:restriction owl:someValuesFrom ?C"
+                ]
+            }
+        },
+        "naming_transformation": [
+            {                
+                "lex": [
+                    {
+                        "?G": ["?C", "?A"]
+                    }
+                ],
+                "ntp": [
+                    {
+                        "?G": ["make_passive_verb(?C)+head_noun(?A)", "make_passive_verb(?C)"]
+                    }
+                ]
+            }
+        ]
+    }
 }
 ```
 ## Transformation Pipeline Driven by Transformation Pattern Lite
@@ -256,6 +269,25 @@ WHERE {
 } 
 ```
 This is basically already implemented. Now user could select pattern instance for transformation.
+
+**TODO** New feature is related to lexicalization which should be output for example for LLM trainining based on `$.tp.naming_transformation.lex`
+
+```
+"naming_transformation": [
+    {                
+	"lex": [
+	    {
+		"?G": ["?C", "?A"]
+	    }
+	],
+	"ntp": [
+	    {
+		"?G": ["make_passive_verb(?C)+head_noun(?A)", "make_passive_verb(?C)"]
+	    }
+	]
+    }
+]
+```
 
 2. SPARQL update preparation (user interaction)
 
