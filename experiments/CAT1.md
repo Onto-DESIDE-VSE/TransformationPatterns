@@ -349,7 +349,12 @@ INSERT DATA {
   _:restriction owl:someValuesFrom :Acceptance
 }
 ```
+**ABox**
+ABox triples should be converted accordingly. 
 
+```
+TODO example
+```
 
 3. result to download, show, visualize
 
