@@ -175,7 +175,7 @@ Evolved version see notes at [CAT1](https://github.com/Onto-DESIDE-VSE/Transform
 		"op_target": {			
 			"triples": {
 				"triple": [
-                    "?p rdfs:range ?A",
+					"?p rdfs:range ?A",
 					"?p rdfs:domain ?B",
 					"?r rdfs:domain ?A",
 					"?r rdfs:range ?C",
@@ -187,3 +187,42 @@ Evolved version see notes at [CAT1](https://github.com/Onto-DESIDE-VSE/Transform
 	}
 }
 ```
+## Transformation Pipeline Driven by Transformation Pattern Lite
+
+Here is the example. Generally described at [CAT1](https://github.com/Onto-DESIDE-VSE/TransformationPatterns/blob/main/experiments/CAT1.md#transformation-pipeline-driven-by-transformation-pattern-lite)
+
+1.
+
+```
+SELECT ?p ?r ?A ?B ?C
+WHERE {
+?p rdfs:range ?A .
+?p rdfs:domain ?B .
+?r rdfs:domain ?A .
+?r rdfs:range ?C .
+}					
+```
+2.
+
+```
+INSERT_axioms = {"?q rdfs:domain ?B", "?q rdfs:range ?C"}
+```
+
+```
+DELETE_axioms = {}
+```
+
+```
+new_entities = {?q}
+```
+
+Considering user have already made some selection:
+
+```
+INSERT DATA {
+ :hasMayorOfCapital rdfs:domain :OWLtopia .
+ :hasMayorOfCapital rdfs:range :JohnLinkedton .
+}
+```
+
+3. option to show SPARQL update, transformed ontology, (later on) visualization
