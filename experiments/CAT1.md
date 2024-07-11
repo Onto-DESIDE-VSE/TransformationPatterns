@@ -288,7 +288,7 @@ new_entities = extract_variables_from_triples($.tp.op_target.triples) - extract_
 **CAT1 Example**
 
 ```
-INSERT_axioms = {"?G rdfs:subClassOf ?A", "?G owl:equivalentClass _:restriction","_:restriction rdf:type owl:Restriction", "_:restriction owl:onProperty ?q", "_:restriction owl:someValuesFrom ?F"}
+INSERT_axioms = {"?G rdfs:subClassOf ?A", "?G owl:equivalentClass _:restriction","_:restriction rdf:type owl:Restriction", "_:restriction owl:onProperty ?p", "_:restriction owl:someValuesFrom ?C"}
 ```
 
 ```
@@ -325,11 +325,11 @@ WHERE {
 **CAT1 Example**
 ```
 INSERT {
-  "?G rdfs:subClassOf ?A",
-  "?G owl:equivalentClass _:restriction",
-  "_:restriction rdf:type owl:Restriction",
-  "_:restriction owl:onProperty ?q",
-  "_:restriction owl:someValuesFrom ?F"
+  ?G rdfs:subClassOf ?A .
+  ?G owl:equivalentClass _:restriction .
+  _:restriction rdf:type owl:Restriction .
+  _:restriction owl:onProperty ?p .
+  _:restriction owl:someValuesFrom ?C 
 }
 WHERE {
   ?p rdfs:domain ?A .
@@ -338,7 +338,17 @@ WHERE {
 }
 ```
 
-NOTE But, variables will be rather already bound from user interaction, i.e., INSERT DATA without WHERE clause.
+NOTE But, variables will be rather already bound from user interaction, i.e., INSERT DATA without WHERE clause, e.g.
+
+```
+INSERT DATA {
+  :AcceptedPaper rdfs:subClassOf :Paper.
+  :AcceptedPaper owl:equivalentClass _:restriction .
+  _:restriction rdf:type owl:Restriction .
+  _:restriction owl:onProperty :hasDecision .
+  _:restriction owl:someValuesFrom :Acceptance
+}
+```
 
 
 3. result to download, show, visualize
