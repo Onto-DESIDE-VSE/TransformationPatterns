@@ -221,3 +221,76 @@ OZ NOTE After some consideration, I think we can try simplification of transform
 	}
 }
 ```
+## Transformation Pipeline Driven by Transformation Pattern Lite
+
+We describe the step-by-step pipeline of applying transformation pattern on ontology.
+
+1. detection using SPARQL
+
+Use
+
+```
+$.tp.op_source.triples
+```
+for SPARQL query preparation:
+
+Variables are extracted from triples: ?A, ?p, ?B, ?C
+
+```
+SELECT ?A ?p ?B ?C 
+WHERE { 
+	?p rdfs:domain ?A .
+	?p rdfs:range ?B .
+	?C rdfs:subClassOf ?B 
+} 
+```
+This is basically already implemented. Now user could select pattern instance for transformation.
+
+2. 
+
+Use
+
+```
+$.tp.op_source.triples
+```
+
+and
+
+```
+$.tp.op_target.triples
+```
+
+For SPARQL update preparation. User interaction: axiom selection and entities naming.
+
+```
+INSERT_axioms = $.tp.op_target.triples - $.tp.op_source.triples
+```
+
+```
+DELETE_axioms = $.tp.op_source.triples - $.tp.op_target.triples
+```
+
+Next, we will show to user suggestions which axioms should be added **INSERT_axioms_selected** and which axioms could be removed **DELETE_axioms_selected**. There will also be some newly added entities - for beginning they can be named randonmly. User will have an option to rename them. Next, user will confirm the INSERT and DELETE changes. The corresponding SPARQL will be generated:
+
+```
+INSERT {
+  INSERT_axioms_selected
+}
+WHERE {
+  $.tp.op_source.triples
+}
+```
+(for start we can consider only INSERT part and focus on DELETE later on)
+
+```
+DELETE {
+  DELETE_axioms_selected
+}
+WHERE {
+ $.tp.op_source.triples   
+}
+```
+
+The result can be both SPARQL Update and transformed ontology for download.
+
+TODO later on we should also involve visualization, e.g. using [VOWL]((for start we can consider only INSERT part and focus on DELETE later on))
