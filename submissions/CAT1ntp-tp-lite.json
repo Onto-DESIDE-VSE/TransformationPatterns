@@ -22,12 +22,12 @@
                 "_:restriction owl:onProperty ?p",
                 "_:restriction owl:someValuesFrom ?C"
             ]
-        },
-        "ntp": [ 
+        }
+    },
+    "ntp": [ 
         {
-        "?G": "make_passive_verb(?C)+head_noun(?A)"
+            "?G": "make_passive_verb(?C)+head_noun(?A)"
         }
-            ]
-        }
+     ]    
     }		
 }
