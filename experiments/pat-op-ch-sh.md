@@ -226,6 +226,7 @@ INSERT DATA {
 ```
 
 **ABox**
+
 ABox triples should be converted accordingly.
 
 ```
@@ -233,6 +234,7 @@ INSERT {?x <newProperty> ?z}
 WHERE{
 ?x ?p ?y.
 ?y ?r ?z.
+}
 ```
 
 3. option to show SPARQL update, transformed ontology, (later on) visualization
