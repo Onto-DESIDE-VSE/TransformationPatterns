@@ -153,3 +153,37 @@ Output:
 	}
 }
 ```
+
+## Transformation Pattern Lite
+
+Evolved version see notes at [CAT1](https://github.com/Onto-DESIDE-VSE/TransformationPatterns/blob/main/experiments/CAT1.md#transformation-pattern-lite)
+
+```
+{
+	"tp": {
+	"name": "op-ch-sh",
+		"op_source": {
+			"triples": {
+				"triple": [
+					"?p rdfs:range ?A",
+					"?p rdfs:domain ?B",
+					"?r rdfs:domain ?A",
+					"?r rdfs:range ?C"
+				]
+			}
+		},
+		"op_target": {			
+			"triples": {
+				"triple": [
+                    "?p rdfs:range ?A",
+					"?p rdfs:domain ?B",
+					"?r rdfs:domain ?A",
+					"?r rdfs:range ?C",
+					"?q rdfs:domain ?B",
+					"?q rdfs:range ?C"
+				]
+			}
+		}		
+	}
+}
+```
