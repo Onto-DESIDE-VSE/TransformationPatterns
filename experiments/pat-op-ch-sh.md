@@ -37,7 +37,7 @@ $p rdfs:range $a . $r rdfs:domain $a .
 ### SPARQL for detection
 
 ```
-SELECT ?p ?r ?a ?b ?c
+SELECT DISTINCT ?b ?p ?a ?r ?c
 WHERE {
 	?p rdfs:domain ?b .
 	?p rdfs:range ?a .
