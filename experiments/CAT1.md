@@ -382,7 +382,7 @@ INSERT DATA {
 }
 ```
 **ABox**
-ABox triples should be converted accordingly. 
+ABox triples should be converted accordingly. Interesting example is within the [Class hierarchy conversion to codelist](https://docs.google.com/document/d/1DgX78h7WpHdcytKjxzsYCVbSrOQLCMYQ97odE8OUY-w/edit#heading=h.tzov4axobh0t) where we could add instance into op_source and op_target and try to derive instructions for ABox update using SPARQL update.
 
 ```
 TODO example
