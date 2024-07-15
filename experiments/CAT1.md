@@ -20,6 +20,8 @@ TODO
 
 ## SPARQL for detection (TBox)
 
+Ontology for testing: [cmt](https://oaei.ontologymatching.org/2024/conference/data/cmt.owl)
+
 ```
 SELECT DISTINCT ?B ?p ?C ?A
 WHERE { 
