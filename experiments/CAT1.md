@@ -308,11 +308,11 @@ $.tp.op_target.triples
 For SPARQL update preparation. User interaction: axiom selection and entities naming.
 
 ```
-INSERT_axioms = $.tp.op_target.triples - $.tp.op_source.triples
+INSERT_triples = $.tp.op_target.triples - $.tp.op_source.triples
 ```
 
 ```
-DELETE_axioms = $.tp.op_source.triples - $.tp.op_target.triples
+DELETE_triples = $.tp.op_source.triples - $.tp.op_target.triples
 ```
 
 ```
@@ -322,22 +322,22 @@ new_entities = extract_variables_from_triples($.tp.op_target.triples) - extract_
 **CAT1 Example**
 
 ```
-INSERT_axioms = {"?G rdfs:subClassOf ?A", "?G owl:equivalentClass _:restriction","_:restriction rdf:type owl:Restriction", "_:restriction owl:onProperty ?p", "_:restriction owl:someValuesFrom ?C"}
+INSERT_triples = {"?G rdfs:subClassOf ?A", "?G owl:equivalentClass _:restriction","_:restriction rdf:type owl:Restriction", "_:restriction owl:onProperty ?p", "_:restriction owl:someValuesFrom ?C"}
 ```
 
 ```
-DELETE_axioms = {}
+DELETE_triples = {}
 ```
 
 ```
 new_entities = {?G}
 ```
 
-Next, we will show the user suggestions on which axioms should be added **INSERT_axioms_selected** and which axioms could be removed **DELETE_axioms_selected**. There will also be some newly added entities **new_entities** - for the beginning, they can be named randomly. Users will have an option to rename them. Next, the user will confirm the INSERT and DELETE changes. The corresponding SPARQL will be generated:
+Next, we will show the user suggestions on which axioms should be added **INSERT_triples_selected** and which axioms could be removed **DELETE_triples_selected**. There will also be some newly added entities **new_entities** - for the beginning, they can be named randomly. Users will have an option to rename them. Next, the user will confirm the INSERT and DELETE changes. The corresponding SPARQL will be generated:
 
 ```
 INSERT {
-  INSERT_axioms_selected
+  INSERT_triples_selected
 }
 WHERE {
   $.tp.op_source.triples
@@ -349,7 +349,7 @@ NOTE But, variables will be rather already bound from user interaction, i.e., IN
 
 ```
 DELETE {
-  DELETE_axioms_selected
+  DELETE_triples_selected
 }
 WHERE {
  $.tp.op_source.triples   
