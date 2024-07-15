@@ -209,11 +209,11 @@ WHERE {
 2.
 
 ```
-INSERT_axioms = {"?q rdfs:domain ?B", "?q rdfs:range ?C"}
+INSERT_triples = {"?q rdfs:domain ?B", "?q rdfs:range ?C"}
 ```
 
 ```
-DELETE_axioms = {}
+DELETE_triples = {}
 ```
 
 ```
