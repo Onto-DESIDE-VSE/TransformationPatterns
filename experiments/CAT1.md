@@ -230,7 +230,7 @@ OZ NOTE After some consideration, I think we can try simplification of transform
                 ],
                 "ntp": [
                     {
-                        "?G": ["make_passive_verb(?C)+head_noun(?A)", "make_passive_verb(?C)"]
+                        "?G": ["?A that ?p a ?C"]
                     }
                 ]
             }
@@ -333,7 +333,14 @@ DELETE_triples = {}
 new_entities = {?G}
 ```
 
-Next, we will show the user suggestions on which axioms should be added **INSERT_triples_selected** and which axioms could be removed **DELETE_triples_selected**. There will also be some newly added entities **new_entities** - for the beginning, they can be named randomly. Users will have an option to rename them. Next, the user will confirm the INSERT and DELETE changes. The corresponding SPARQL will be generated:
+Next, we will show the user suggestions on which axioms should be added **INSERT_triples_selected** and which axioms could be removed **DELETE_triples_selected**. There will also be some newly added entities **new_entities** - for the beginning, they can be named randomly. IRIs of new entities will be generated but labels will be prepared according to instrutions in **ntp**. Users will have an option to edit the labels. Next, the user will confirm the INSERT and DELETE changes. The corresponding SPARQL will be generated:
+
+```
+"?A that ?p a ?C"
+```
+For example-> "Paper that hasDecision a Accept"
+
+
 
 ```
 INSERT {
