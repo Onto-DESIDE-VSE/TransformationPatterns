@@ -28,12 +28,12 @@
             {                
                 "lex": 
                     {
-                        "?G": ["?C", "?A"]
+                        "?G": ["label(?C)", "label(?A)"]
                     }
                 ,
                 "ntp": 
                     {
-                        "?G": ["?A that ?p a noun_form(?C)", "make_passive_verb(?C) head_noun(?A)"]
+                        "?G": ["label(?A) that label(?p) a noun_form(?C)", "make_passive_verb(?C) head_noun(?A)"]
                     }
             }
     }
