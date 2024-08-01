@@ -27,12 +27,12 @@
             {                
                 "lex": 
                     {
-                        "?q": ["?p", "?A", "?r"]
+                        "?q": ["label(?p)", "label(?A)", "label(?r)"]
                     }
                 ,
                 "ntp": 
                     {
-                        "?q": ["relates ?B to ?C", "?p ?C"]
+                        "?q": ["relates label(?B) to label(?C)", "?p ?C"]
                     }
             }
 	}
