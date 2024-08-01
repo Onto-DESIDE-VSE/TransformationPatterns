@@ -32,7 +32,7 @@
                 ,
                 "ntp": 
                     {
-                        "?q": ["relates ?A to ?C", "?p ?C"]
+                        "?q": ["relates ?B to ?C", "?p ?C"]
                     }
             }
 	}
