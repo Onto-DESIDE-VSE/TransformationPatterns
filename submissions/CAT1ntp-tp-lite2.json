@@ -6,7 +6,7 @@
                 "triple": [
                     "?p rdfs:domain ?A",
                     "?p rdfs:range ?B",
-                    "?C rdfs:subClassOf ?B"
+                    "?C rdfs:subClassOf* ?B"
                 ]
             }
         },
