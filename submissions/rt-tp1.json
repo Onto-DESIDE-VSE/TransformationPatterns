@@ -9,7 +9,7 @@
                     "?rop rdfs:domain ?P",
                     "?rhp rdfs:range ?c",
                     "?rp rdfs:range ?r",
-                    "?rop rdfs:range ?d",                    
+                    "?rop rdfs:range ?d"                    
                 ]
             },
             "filters": {
