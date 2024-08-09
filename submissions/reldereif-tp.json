@@ -1,0 +1,40 @@
+{
+    "tp": {
+        "name": "RelationshipDereification1",
+        "op_source": {
+            "triples": {
+                "triple": [                
+                    "?p rdfs:domain ?a", 
+                    "?r rdfs:domain ?a",                    
+                    "?p rdfs:range ?b", 
+                    "?r rdfs:range ?c"                    
+                ]
+            },
+            "filters": {
+                "filter": [                    
+                    "FILTER(?p != ?r)"                    
+                ]
+            }
+        },
+        "op_target": {
+            "triples": {
+                "triple": [
+                    "?q rdfs:domain ?b",
+                    "?q rdfs:range ?c",                    
+                ]
+            }
+        },
+        "naming_transformation":
+            {                
+                "lex": 
+                    {
+                        "?q": ["label(?p)", "label(?r)", "label(?a)"]
+                    }
+                ,
+                "ntp": 
+                    {
+                        "?q": [ "label(?p) label(?p)"]
+                    }
+            }
+    }
+}
