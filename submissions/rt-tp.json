@@ -1,0 +1,40 @@
+{
+    "tp": {
+        "name": "RoleTransformations1",
+        "op_source": {
+            "triples": {
+                "triple": [
+                    "?rhp rdfs:domain ?P", 
+                    "?rp rdfs:domain ?P",
+                    "?rop rdfs:domain ?P",
+                    "?rhp rdfs:range ?c",
+                    "?rp rdfs:range ?r",
+                    "?rop rdfs:range ?d",
+                    "FILTER(?rhp != ?rp && ?rp != ?rop && ?rhp != ?rop && ?P != ?c && ?c != ?r && ?r != ?d)",
+                    "FILTER(contains(str(?rhp), 'role'))"
+                ]
+            }
+        },
+        "op_target": {
+            "triples": {
+                "triple": [
+                    "?p rdfs:domain ?c",
+                    "?p rdfs:range ?d",
+                    "?e rdfs:subClassOf ?c"                    
+                ]
+            }
+        },
+        "naming_transformation":
+            {                
+                "lex": 
+                    {
+                        "?p": ["label(?d)"], "?e": ["label(?r)"]
+                    }
+                ,
+                "ntp": 
+                    {
+                        "?p": [ "does something with label(?d)"], "?e": ["subClassOf label(?r)"]
+                    }
+            }
+    }
+}
