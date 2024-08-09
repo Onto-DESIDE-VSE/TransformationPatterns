@@ -33,7 +33,7 @@
                 ,
                 "ntp": 
                     {
-                        "?q": [ "label(?p) label(?p)"]
+                        "?q": [ "label(?p) label(?r)"]
                     }
             }
     }
