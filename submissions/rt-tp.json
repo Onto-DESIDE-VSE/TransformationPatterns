@@ -18,7 +18,7 @@
         "op_target": {
             "triples": {
                 "triple": [
-                    "?p rdfs:domain ?c",
+                    "?p rdfs:domain ?e",
                     "?p rdfs:range ?d",
                     "?e rdfs:subClassOf ?c"                    
                 ]
