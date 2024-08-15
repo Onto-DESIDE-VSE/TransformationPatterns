@@ -6,14 +6,17 @@ Based on Class by Attribute Type (CAT) alignment pattern from [ScharffePhDThesis
 
 Input
 ```
-TODO
+$x $p $y . $y a $c 
 ```
 Output
 ```
-TODO
+$x a $d .
 ```
 
 ## TBox structure
+```
+$p rdfs:domain $a ; rdfs:range $b . $c rdfs:subClassOf $b .
+```
 
 ![image](https://github.com/Onto-DESIDE-VSE/TransformationPatterns/assets/8502675/fe728e13-017b-4df0-b53b-c52f5de61dc9)
 
