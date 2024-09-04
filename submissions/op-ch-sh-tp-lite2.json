@@ -1,44 +1,40 @@
 {
-	"tp": {
-	"name": "op-ch-sh",
-		"op_source": {
-			"triples": {
-				"triple": [
-					"?p rdfs:range ?A",
-					"?p rdfs:domain ?B",
-					"?r rdfs:domain ?A",
-					"?r rdfs:range ?C"
-				]
-			},
-			"filters": {
+    "tp": {
+        "name": "RelationshipDereification1",
+        "op_source": {
+            "triples": {
+                "triple": [                
+                    "?p rdfs:domain ?a", 
+                    "?r rdfs:domain ?a",                    
+                    "?p rdfs:range ?b", 
+                    "?r rdfs:range ?c"                    
+                ]
+            },
+            "filters": {
                 "filter": [                    
-                    "FILTER(?p != ?r && ?B != ?C)"
+                    "FILTER(?p != ?r)"                    
                 ]
             }
-		},
-		"op_target": {			
-			"triples": {
-				"triple": [
-                    "?p rdfs:range ?A",
-					"?p rdfs:domain ?B",
-					"?r rdfs:domain ?A",
-					"?r rdfs:range ?C",
-					"?q rdfs:domain ?B",
-					"?q rdfs:range ?C"
-				]
-			}
-		},
-		"naming_transformation":
+        },
+        "op_target": {
+            "triples": {
+                "triple": [
+                    "?q rdfs:domain ?b",
+                    "?q rdfs:range ?c",                    
+                ]
+            }
+        },
+        "naming_transformation":
             {                
                 "lex": 
                     {
-                        "?q": ["?p", "?A", "?r"]
+                        "?q": ["label(?p)", "label(?r)", "label(?a)"]
                     }
                 ,
                 "ntp": 
                     {
-                        "?q": ["relates ?B to ?C", "?p ?C"]
+                        "?q": [ "label(?p) label(?r)"]
                     }
             }
-	}
+    }
 }
