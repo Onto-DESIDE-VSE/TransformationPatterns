@@ -9,7 +9,12 @@
 					"?r rdfs:domain ?A",
 					"?r rdfs:range ?C"
 				]
-			}
+			},
+			"filters": {
+                "filter": [                    
+                    "FILTER(?p != ?r && ?B != ?C)"
+                ]
+            }
 		},
 		"op_target": {			
 			"triples": {
@@ -27,12 +32,12 @@
             {                
                 "lex": 
                     {
-                        "?q": ["label(?p)", "label(?A)", "label(?r)"]
+                        "?q": ["?p", "?A", "?r"]
                     }
                 ,
                 "ntp": 
                     {
-                        "?q": ["relates label(?B) to label(?C)", "?p ?C"]
+                        "?q": ["relates ?B to ?C", "?p ?C"]
                     }
             }
 	}
