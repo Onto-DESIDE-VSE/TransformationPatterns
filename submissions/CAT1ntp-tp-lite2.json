@@ -1,4 +1,4 @@
-{
+
     "tp": {
         "name": "CAT1",
         "op_source": {
@@ -6,7 +6,7 @@
                 "triple": [
                     "?p rdfs:domain ?A",
                     "?p rdfs:range ?B",
-                    "?C rdfs:subClassOf* ?B"
+                    "?C rdfs:subClassOf ?B"
                 ]
             }
         },
@@ -33,7 +33,7 @@
                 ,
                 "ntp": 
                     {
-                        "?G": ["label(?A) that label(?p) a noun_form(?C)", "make_passive_verb(?C) head_noun(?A)"]
+                        "?G": ["label(?A) that label(?p) a noun_form(?C)", "make_passive_verb(?C) head_noun(?A)", "label(?A) that label(?p) a label(?C)"]
                     }
             }
     }
