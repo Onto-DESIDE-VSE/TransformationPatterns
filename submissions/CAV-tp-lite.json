@@ -8,7 +8,13 @@
                     "?p rdfs:range ?B",
                     "?c rdf:type ?B"
                 ]
+            },
+            "filters": {
+                "filter": [                    
+                    "FILTER(?A != ?B)"
+                ]
             }
+            
         },
         "op_target": {
             "triples": {
