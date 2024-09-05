@@ -8,6 +8,11 @@
                     "?p rdfs:range ?B",
                     "?C rdfs:subClassOf ?B"
                 ]
+            },
+            "filters": {
+                "filter": [                    
+                    "FILTER(?A != ?B)"
+                ]
             }
         },
         "op_target": {
