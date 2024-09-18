@@ -26,7 +26,7 @@ $p rdfs:domain $a ; rdfs:range $b . $c rdfs:subClassOf $b .
 Ontology for testing: [cmt](https://oaei.ontologymatching.org/2024/conference/data/cmt.owl)
 
 ```
-SELECT DISTINCT ?B ?p ?C ?A
+SELECT DISTINCT ?A ?p ?B ?C
 WHERE { 
   ?p rdfs:domain ?A .
   ?p rdfs:range ?B .
