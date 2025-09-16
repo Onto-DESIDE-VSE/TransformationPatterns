@@ -4,15 +4,16 @@ Creating a new dataproperty that counts the same objected property, which lead f
 
 ### SPARQL for detection
 
-```
-SELECT ?x (COUNT(?y) AS ?count)
+```sparql
+SELECT ?x ?p (COUNT(?y) AS ?count)
 		WHERE {?x ?p ?y}
-		GROUP BY ?x   
-
+		GROUP BY ?x ?p
+        HAVING (COUNT(?y) >= 3) 
 ```
+The condition `HAVING (COUNT(?y) >= 3)` is optional.
 
 ## SPARQL Abox update:
-```
+```sparql
 INSERT {?x <newProperty> ?count .}
 WHERE { 
 	{
@@ -24,7 +25,7 @@ WHERE {
 ```
 
 ### SPARQL Tbox update
-```
+```sparql
 INSERT {
 	<newProperty> a owl:DatatypeProperty;
 	rdfs:domain ?A ;
@@ -34,7 +35,7 @@ WHERE {
 	rdfs: domain ?A .
 }
 ```
-
+<img width="246" height="426" alt="Tbox diagram for COPR pattern" src="https://github.com/user-attachments/assets/701f6b6b-37f7-430f-af45-ed00798175c8" />
 
 
 ## Examples
@@ -48,6 +49,9 @@ Output:
 ```
   :Alice vnew:numberOfCitizenships “2” .
 ```
+
+<img width="382" height="386" alt="Example of COPR pattern" src="https://github.com/user-attachments/assets/7aa3c5ca-6a94-4dd1-b0c0-71acaa758785" />
+
 
 
 
