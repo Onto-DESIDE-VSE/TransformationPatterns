@@ -63,7 +63,9 @@ Output:
 :Bob vnew:isMarriedTo :Alice .
 ```
 
-TODO (diagram)
+<img width="505" height="234" src="https://github.com/user-attachments/assets/53a66b17-47c4-49ec-9004-8bc20b724332" />
+
+<img width="502" height="240" src="https://github.com/user-attachments/assets/eaa40bae-2b26-471f-bf50-ec24cc927a42" />
 
 
 
