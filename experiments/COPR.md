@@ -8,9 +8,8 @@ Creating a new dataproperty that counts the same objected property, which lead f
 SELECT ?x ?p (COUNT(?y) AS ?count)
 		WHERE {?x ?p ?y}
 		GROUP BY ?x ?p
-        HAVING (COUNT(?y) >= 3) 
+        HAVING (COUNT(?y) >= 2) 
 ```
-The condition `HAVING (COUNT(?y) >= 3)` is optional.
 
 ## SPARQL Abox update:
 ```sparql
