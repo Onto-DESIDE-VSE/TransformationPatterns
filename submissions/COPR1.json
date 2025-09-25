@@ -1,0 +1,34 @@
+{
+    "tp": {
+        "name": "CAT1",
+        "op_source": {
+            "triples": {
+                "triple": [
+                    "?p rdfs:domain ?A",
+                    "?p rdfs:range ?B",
+                    "?p rdf:type owl:ObjectProperty"
+                ]
+            },
+            "filters": {
+                "filter": [                    
+                    "FILTER(?A != ?B)"
+                ]
+            }
+        },
+        "op_target": {
+            "triples": {
+                "triple": [
+                    "?q rdf:type owl:DatatypeProperty",
+                    "?q rdfs:domain ?A"
+                ]
+            }
+        },
+        "naming_transformation":
+            {                
+                "ntp": 
+                    {
+                        "?q": ["number of label(?p)", "number of nominalize(?p) head_noun(?p)"]
+                    }
+            }
+    }
+}
