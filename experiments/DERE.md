@@ -7,10 +7,12 @@ Similar to Object Property Chain Shortcut Pattern [CHASH](https://github.com/Ont
 ### SPARQL for detection
 
 ```sparql
-SELECT ?reif ?p ?a
+SELECT ?a ?p ?reif ?q ?b
 WHERE{
-    ?p rdfs:domain ?reif .
-    ?p rdfs:range ?a .
+    ?p rdfs:domain ?reif ;
+     rdfs:range ?a .
+	?q rdfs:domain ?reif ;
+     rdfs:range ?b .
 }
 ```
 
