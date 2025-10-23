@@ -1,0 +1,54 @@
+{
+    "tp": {
+        "name": "CAT1",
+        "op_source": {
+            "triples": {
+                "triple": [
+                    "?p rdfs:domain ?A",
+                    "?p rdfs:range ?B",
+                    "?C rdfs:subClassOf ?B"
+                ]
+            },
+            "filters": {
+                "filter": [                    
+                    "FILTER(?A != ?B)"
+                ]
+            }
+        },
+        "op_target": {
+            "triples": {
+                "triple": [
+                    "?p rdfs:domain ?A",
+                    "?p rdfs:range ?B",
+                    "?C rdfs:subClassOf ?B",
+                    "?G rdfs:subClassOf ?A",
+                    "?G owl:equivalentClass _:restriction",
+                    "_:restriction rdf:type owl:Restriction",
+                    "_:restriction owl:onProperty ?p",
+                    "_:restriction owl:someValuesFrom ?C"
+                ]
+            }
+        },        
+        "naming_transformation":
+            {                
+                "lex": 
+                    {
+                        "?G": ["label(?C)", "label(?A)"]
+                    }
+                ,
+                "ntp": 
+                    {
+                        "?G": ["label(?A) that label(?p) a nominalize(?C)", "passivize(?C) head_noun(?A)", "label(?A) that label(?p) a label(?C)"]
+                    }
+            },
+        "llm_sort": {
+                "example_values": {
+                    "A": "Paper",
+                    "B": "Decision",
+                    "C": "Acceptance",
+                    "p": "has decision",
+                    "Q": "Paper that has decision an acceptance"
+                }
+        }
+    }
+}

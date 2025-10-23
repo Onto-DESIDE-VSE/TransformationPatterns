@@ -1,0 +1,54 @@
+{
+	"tp": {
+	"name": "op-ch-sh",
+		"op_source": {
+			"triples": {
+				"triple": [
+					"?p rdfs:range ?A",
+					"?p rdfs:domain ?B",
+					"?r rdfs:domain ?A",
+					"?r rdfs:range ?C"
+				]
+			},
+			"filters": {
+                "filter": [                    
+                    "FILTER(?p != ?r && ?B != ?C)"
+                ]
+            }
+		},
+		"op_target": {			
+			"triples": {
+				"triple": [
+                    "?p rdfs:range ?A",
+					"?p rdfs:domain ?B",
+					"?r rdfs:domain ?A",
+					"?r rdfs:range ?C",
+					"?q rdfs:domain ?B",
+					"?q rdfs:range ?C"
+				]
+			},            
+		},
+		"naming_transformation":
+            {                
+                "lex": 
+                    {
+                        "?q": ["?p", "?A", "?r"]
+                    }
+                ,
+                "ntp": 
+                    {
+                        "?q": ["relates ?B to ?C", "?p ?C"]
+                    }
+            },
+        "llm_sort": {
+                "example_values": {
+                    "A": "Person",
+                    "B": "City",
+                    "C": "State",
+                    "p": "was born in city",
+                    "r": "is located in",
+                    "q": "was born in state"
+                }
+        }
+	}
+}
