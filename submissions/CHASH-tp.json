@@ -41,14 +41,32 @@
                     }
             },
         "llm_sort": {
-                "example_values": {
+                "example_values": [
+                {
                     "A": "Person",
                     "B": "City",
                     "C": "State",
                     "p": "was born in city",
                     "r": "is located in",
                     "q": "was born in state"
+                },
+                {
+                    "A": "Meeting",
+                    "B": "Meeting Notes",
+                    "C": "Action Item",
+                    "p": "Meeting Notes",
+                    "r": "Contains Action Item",
+                    "q": "assigned action item"
+                },
+                {
+                    "A": "Organization",
+                    "B": "Residence Object",
+                    "C": "BasicAddress",
+                    "p": "delivery location",
+                    "r": "addres",
+                    "q": "has delivery address"
                 }
+                ]
         }
 	}
 }

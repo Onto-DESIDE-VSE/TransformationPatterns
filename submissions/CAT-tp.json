@@ -42,13 +42,29 @@
                     }
             },
         "llm_sort": {
-                "example_values": {
+                "example_values": [
+                {
                     "A": "Paper",
                     "B": "Decision",
                     "C": "Acceptance",
                     "p": "has decision",
                     "Q": "Paper that has decision an acceptance"
+                },
+                {
+                    "A": "Scientist",
+                    "B": "Phenomenon",
+                    "C": "Natural Phenomenon",
+                    "p": "interested in phenomenon",
+                    "Q": "Scientist Interested in Natural Phenomenon"
+                },
+                {
+                    "A": "item",
+                    "B": "storage medium",
+                    "C": "digital storage medium",
+                    "p": "is stored on",
+                    "Q": "Digitally stored Item"
                 }
+                ]
         }
     }
 }
