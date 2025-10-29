@@ -1,6 +1,6 @@
 # Link Counting Property Pattern
 
-Creating a new dataproperty that counts the same objected property, which lead from the same object.
+Creating a new dataproperty that counts the same object properties that lead from the same object.
 
 ### SPARQL for detection (Tbox)
 
