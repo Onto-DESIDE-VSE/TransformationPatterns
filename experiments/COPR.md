@@ -2,7 +2,18 @@
 
 Creating a new dataproperty that counts the same objected property, which lead from the same object.
 
-### SPARQL for detection
+### SPARQL for detection (Tbox)
+
+```sparql
+SELECT ?p ?a ?b
+WHERE {
+	?p rdf:type owl:ObjectProperty;
+		rdfs:domain ?a;
+		rdfs:range ?b.
+}
+```
+
+### SPARQL for detection (Abox)
 
 ```sparql
 SELECT ?x ?p (COUNT(?y) AS ?count)
