@@ -1,4 +1,4 @@
-# Relationship dereification
+# Relationship dereification (DERE)
 
 Restoring a reified relationship as a binary property. May lead to reduction of an n-ary (n>2) relationship to a binary one.
 
@@ -74,3 +74,4 @@ Output:
 
 ## Transformation Pattern
 
+First version of corresponding transformation pattern is available: <a href="https://github.com/Onto-DESIDE-VSE/TransformationPatterns/blob/main/submissions/DERE1.json" target="_blank">DERE1.json</a>.
