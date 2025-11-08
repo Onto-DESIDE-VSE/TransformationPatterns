@@ -72,5 +72,5 @@ Output:
 
 
 ## Transformation Pattern
-
+First version of corresponding transformation pattern is available: <a href="https://github.com/Onto-DESIDE-VSE/TransformationPatterns/blob/main/submissions/DERE1.json" target="_blank">DERE1.json</a>.
 
