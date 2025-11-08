@@ -1,4 +1,4 @@
-# Link Counting Property Pattern
+# Link Counting Property Pattern (COPR)
 
 Creating a new dataproperty that counts the same object properties that lead from the same object.
 
