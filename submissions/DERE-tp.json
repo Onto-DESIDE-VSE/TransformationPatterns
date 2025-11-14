@@ -45,8 +45,8 @@
         "A":"Issue",
         "B":"Argument",
         "reif":"Position",
-        "v":"has argument against",
-        "u":"has argument pro"
+        "v":"is argument against",
+        "u":"has argument against"
         },
         {
         "p":"has indicator value",
@@ -54,8 +54,8 @@
         "A":"Indicator value",
         "B":"Indicator",
         "reif":"Indicator",
-        "v":"indicator value of sub indicator",
-        "u":"indicator value of super indicator"
+        "v":"has indicator value of sub indicator",
+        "u":"has super indicator"
         }
         ]
 }
